@@ -82,7 +82,7 @@ const ContactSection = () => {
                             </div>
                         </motion.div>
                         <motion.div {...options2} className="col-lg-6">
-                            <form action="forms/contact.php" method="post" role="form" className="php-email-form">
+                            <form className="php-email-form">
                                 <div className="row">
                                     <div className="col form-group">
                                         <input type="text" name="name" className="form-control" id="name" placeholder="Your Name" required />
