@@ -9,6 +9,20 @@ body {
   font-family: 'Open Sans', sans-serif;
   color: #444444;
 }
+
+@media screen and (max-width: 768px) {
+  .about-padding{
+    padding: 0 1rem !important;
+    /* background-color: red; */
+  }
+  .mobile-main-company{
+    margin-top: 2rem;
+  }
+  .mobile-main-artline{
+    margin: 0 2rem;
+  }
+}
+
 .padd {
   margin-left: 2rem !important;
 }

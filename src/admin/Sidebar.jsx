@@ -32,13 +32,13 @@ const Sidebar = () => {
                             </li>
                             <li className="rounded-sm">
                                 <Link
-                                    href="#"
+                                    href="/anas/pricing"
                                     className="flex items-center p-2 space-x-3 rounded-md"
                                 >
 
                                     <BorderColor className='h-6 w-6' />
 
-                                    <span>Blogs</span>
+                                    <span>Pricings</span>
                                 </Link>
                             </li>
                             <li className="rounded-sm">

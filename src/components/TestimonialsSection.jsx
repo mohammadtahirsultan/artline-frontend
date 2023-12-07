@@ -35,7 +35,7 @@ const TestimonialsSection = () => {
                         <motion.h2 {...options}>Testimonials</motion.h2>
                         <motion.p
                             {...options1}
-                        >Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</motion.p>
+                        ><strong> Artline</strong> is Absolute legend, highest service possible. Was helped through the entire process, even through server hosting. Was very happy to work on revisions and provide us a propoer service and product! Thank you to the team of <strong> Artline</strong>! Will definetly be back for more work.                        .</motion.p>
                     </div>
                     <div className="testimonials-slider swiper" data-aos="fade-up" data-aos-delay={100}>
                         <div className="swiper-wrapper">
@@ -47,11 +47,11 @@ const TestimonialsSection = () => {
                                     <div className="testimonial-wrap">
                                         <div className="testimonial-item">
                                             <img src="/testimonials/testimonials-1.jpg" className="testimonial-img" alt />
-                                            <h3>Hamza Ali</h3>
+                                            <h3>dengnoi</h3>
                                             <h4>Ceo &amp; Founder</h4>
                                             <p>
                                                 <i className="bx bxs-quote-alt-left quote-icon-left" />
-                                                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                                                Have been working with <strong> Artline</strong> for over 2 years, Very good at what he does and also revision communication is fast. Reliable and fast service . I highly recommend <strong> Artline</strong> to anyone. who's looking to build and have anything fixed on their websites.
                                                 <i className="bx bxs-quote-alt-right quote-icon-right" />
                                             </p>
                                         </div>
@@ -59,11 +59,11 @@ const TestimonialsSection = () => {
                                     <div className="testimonial-wrap">
                                         <div className="testimonial-item">
                                             <img src="/testimonials/testimonials-3.jpg" className="testimonial-img" alt />
-                                            <h3>Ali Junaid</h3>
+                                            <h3>stacey_zackin</h3>
                                             <h4>Ceo &amp; Founder</h4>
                                             <p>
                                                 <i className="bx bxs-quote-alt-left quote-icon-left" />
-                                                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                                               <strong> Artline</strong> was very easy to work with, very responsive to my needs and requests and added some wonderful creative additions to the website template we chose. I also was not as quick to provide updates as I was hoping to be and he was very patient. I look forward to working together again with <strong> Artline</strong>.
                                                 <i className="bx bxs-quote-alt-right quote-icon-right" />
                                             </p>
                                         </div>
@@ -71,11 +71,11 @@ const TestimonialsSection = () => {
                                     <div className="testimonial-wrap">
                                         <div className="testimonial-item">
                                             <img src="/testimonials/testimonials-2.jpg" className="testimonial-img" alt />
-                                            <h3>Akhtar Chacha</h3>
+                                            <h3>lexiehadley</h3>
                                             <h4>Ceo &amp; Founder</h4>
                                             <p>
                                                 <i className="bx bxs-quote-alt-left quote-icon-left" />
-                                                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                                                I am a returning customer of <strong> Artline</strong> because the work is so well-done and FAST! I am very pleased. I have sent issues that I thought were pretty complicated but they were fixed in no time! I highly recommend <strong> Artline</strong>
                                                 <i className="bx bxs-quote-alt-right quote-icon-right" />
                                             </p>
                                         </div>

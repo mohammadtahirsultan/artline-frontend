@@ -25,12 +25,12 @@ const AboutSection = () => {
                                 <motion.div
 
                                     className='flex gap-4 items-center'>
-                                    <h3>
+                                    <h3 className='mobile-main-artline'>
                                         Artline.Tech
                                     </h3>
-                                    <h6>(Our Company)</h6>
+                                    <h6 className='mobile-main-company'>(Our Company)</h6>
                                 </motion.div>
-                                <p>
+                                <p className='about-padding'>
                                     We Build Robust Solutions To Make Your Business Stand Out In The Industry
                                 </p>
                                 <a href="https://wa.me/+923267985198" target="blank" rel="noopener noreferrer">

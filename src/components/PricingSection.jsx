@@ -1,4 +1,7 @@
+import { getAllPrices } from '@/redux/actions/price';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 const PricingSection = () => {
     const options = {
@@ -45,7 +48,16 @@ const PricingSection = () => {
         },
         transition: { delay: .9 },
     };
+
+    const dispatch = useDispatch()
+    const { pricings } = useSelector(state => state.price)
+    console.log("main hoon pricing", pricings);
+
+    useEffect(() => {
+        dispatch(getAllPrices())
+    }, [dispatch])
     return (
+
         <>
             {/* ======= Pricing Section ======= */}
             <section id="pricing" className="pricing section-bg">
@@ -54,57 +66,29 @@ const PricingSection = () => {
                         <motion.h2
                             {...options}
                         >Pricing</motion.h2>
-                        <motion.p {...options1}>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</motion.p>
+                        <motion.p {...options1}>Big impact, small cost. Elevate your brand with our budget-friendly digital services.</motion.p>
                     </div>
                     <div className="row">
-                        <motion.div {...options} className="col-lg-4 col-md-6">
-                            <div className="box" data-aos="fade-up" data-aos-delay={100}>
-                                <h3>Free</h3>
-                                <h4><sup>$</sup>0<span> / month</span></h4>
-                                <ul>
-                                    <li>Aida dere</li>
-                                    <li>Nec feugiat nisl</li>
-                                    <li>Nulla at volutpat dola</li>
-                                    <li className="na">Pharetra massa</li>
-                                    <li className="na">Massa ultricies mi</li>
-                                </ul>
-                                <div className="btn-wrap">
-                                    <a href="#" className="btn-buy">Buy Now</a>
-                                </div>
-                            </div>
-                        </motion.div>
-                        <motion.div {...options2} className="col-lg-4 col-md-6 mt-4 mt-md-0">
-                            <div className="box featured" data-aos="fade-up" data-aos-delay={200}>
-                                <h3>Business</h3>
-                                <h4><sup>$</sup>19<span> / month</span></h4>
-                                <ul>
-                                    <li>Aida dere</li>
-                                    <li>Nec feugiat nisl</li>
-                                    <li>Nulla at volutpat dola</li>
-                                    <li>Pharetra massa</li>
-                                    <li className="na">Massa ultricies mi</li>
-                                </ul>
-                                <div className="btn-wrap">
-                                    <a href="#" className="btn-buy">Buy Now</a>
-                                </div>
-                            </div>
-                        </motion.div>
-                        <motion.div {...options3} className="col-lg-4 col-md-6 mt-4 mt-lg-0">
-                            <div className="box" data-aos="fade-up" data-aos-delay={300}>
-                                <h3>Developer</h3>
-                                <h4><sup>$</sup>29<span> / month</span></h4>
-                                <ul>
-                                    <li>Aida dere</li>
-                                    <li>Nec feugiat nisl</li>
-                                    <li>Nulla at volutpat dola</li>
-                                    <li>Pharetra massa</li>
-                                    <li>Massa ultricies mi</li>
-                                </ul>
-                                <div className="btn-wrap">
-                                    <a href="#" className="btn-buy">Buy Now</a>
-                                </div>
-                            </div>
-                        </motion.div>
+                        {
+                            pricings?.map(price => (
+                                <motion.div {...options} className="col-lg-4 col-md-6 mt-4 mt-md-0 mb-4">
+
+                                    <div key={price._id} className="box" data-aos="fade-up" data-aos-delay={100}>
+                                        <h3>{price?.packageName}</h3>
+                                        <h4><sup>$</sup>{price?.price}</h4>
+                                        <div dangerouslySetInnerHTML={{ __html: price.features }} />
+
+                                        <div className="btn-wrap">
+                                            <a href="#" className="btn-buy">Buy Now</a>
+                                        </div>
+                                    </div>
+
+
+
+                                </motion.div>
+                            ))
+                        }
+
                     </div>
                 </div>
             </section>{/* End Pricing Section */}
