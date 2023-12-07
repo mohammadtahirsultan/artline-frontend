@@ -111,42 +111,6 @@ export const getPriceDetails = (id) => async (dispatch) => {
     }
 }
 
-export const getPrice = (id) => async (dispatch) => {
-
-    try {
-
-        dispatch({
-            type: "getPriceRequest"
-        })
-
-        const config = {
-
-            headers: { "Content-Type": "application/json" },
-
-        };
-
-
-        const { data } = await axios.get(
-            `${server}/Price/${id}`,
-            config
-        );
-        console.log(data);
-
-        dispatch({
-            type: "getPriceSuccess",
-            payload: data
-        })
-
-
-    } catch (error) {
-        dispatch({
-            type: "getPriceFail",
-            payload: error.response.data.message
-        })
-    }
-}
-
-
 
 
 export const getAllPrices = () => async (dispatch) => {
