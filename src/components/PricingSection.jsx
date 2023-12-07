@@ -37,21 +37,10 @@ const PricingSection = () => {
         },
         transition: { delay: .7 },
     };
-    const options3 = {
-        initial: {
-            y: 200,
-            opacity: 0,
-        },
-        whileInView: {
-            y: 0,
-            opacity: 1,
-        },
-        transition: { delay: .9 },
-    };
+
 
     const dispatch = useDispatch()
     const { pricings } = useSelector(state => state.price)
-    console.log("main hoon pricing", pricings);
 
     useEffect(() => {
         dispatch(getAllPrices())
@@ -79,7 +68,7 @@ const PricingSection = () => {
                                         <div dangerouslySetInnerHTML={{ __html: price.features }} />
 
                                         <div className="btn-wrap">
-                                            <a href="#" className="btn-buy">Buy Now</a>
+                                            <a href="https://wa.me/+923267985198" target="blank" rel="noopener noreferrer" className="btn-buy">Buy Now</a>
                                         </div>
                                     </div>
 

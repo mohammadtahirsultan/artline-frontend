@@ -55,6 +55,10 @@ form {
 .margin {
   margin-top: 4rem;
 }
+.max-Wdth{
+  width: 60vw !important;
+  margin: .31rem 0;
+}
 .marginBt {
   margin-bottom: 4rem;
 }
