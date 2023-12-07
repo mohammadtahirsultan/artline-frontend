@@ -1,5 +1,5 @@
 import Footer from '@/components/Footer'
-import Header from '@/components/Header'
+import Header from '@/components/Header.jsx'
 import '@/styles/globals.css'
 import '../assets/vendor/aos/aos.js';
 import '../assets/vendor/bootstrap/css/bootstrap.min.css';
