@@ -11,11 +11,9 @@ const ProjectDetails = () => {
     const { project } = useSelector(state => state.project)
     const router = useRouter();
     const { id } = router.query;
-    console.log(id);
     useEffect(() => {
         dispatch(getProjectDetails(id))
     }, [])
-    console.log("I am Project", project?.image);
     return (
         <>
             <main id="main">
