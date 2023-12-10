@@ -110,7 +110,7 @@ const AddProject = () => {
 
                             </div>
                             <div className="mt-1">
-                                <input value={link} onChange={(e) => setLink(e.target.value)} type="text" name='link' autoComplete="link" required className="block w-full text-sm border border-black rounded-lg  bg-gray-50 focus:outline-none p-2" placeholder='Provide Link' />
+                                <input value={link} onChange={(e) => setLink(e.target.value)} type="text" name='link' autoComplete="link" className="block w-full text-sm border border-black rounded-lg  bg-gray-50 focus:outline-none p-2" placeholder='Provide Link' />
                             </div>
                         </div>
 

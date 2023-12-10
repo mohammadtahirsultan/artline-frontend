@@ -108,7 +108,7 @@ const EditProject = () => {
 
                             </div>
                             <div className="mt-1">
-                                <input required value={link} onChange={(e) => setLink(e.target.value)} type="text" name='link' autoComplete="link" className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inappend ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inappend focus:ring-text-gray-800sm:text-sm sm:leading-6 px-2" />
+                                <input value={link} onChange={(e) => setLink(e.target.value)} type="text" name='link' autoComplete="link" className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inappend ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inappend focus:ring-text-gray-800sm:text-sm sm:leading-6 px-2" />
                             </div>
                         </div>
 
