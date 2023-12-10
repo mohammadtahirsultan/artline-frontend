@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const PortfolioDetails = () => {
@@ -9,7 +10,7 @@ const PortfolioDetails = () => {
                 <section className="breadcrumbs">
                     <div className="container">
                         <ol>
-                            <li><a href="index.html">Home</a></li>
+                            <li><Link href="/portfolio">Home</Link></li>
                             <li>Portfolio Details</li>
                         </ol>
                         <h2>Portfolio Details</h2>
