@@ -28,7 +28,7 @@ const PortfolioSection = () => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-
+    console.log(projects);
     useEffect(() => {
         dispatch(getAllProjects())
     }, []);

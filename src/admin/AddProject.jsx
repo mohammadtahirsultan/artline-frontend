@@ -67,9 +67,8 @@ const AddProject = () => {
         data.set("link", link)
 
         image.forEach((image) => {
-            data.append("images", image);
+            data.append("image", image);
         });
-
 
         await dispatch(addProject(data));
 

@@ -8,8 +8,7 @@ const Item = ({ item, width }) => {
         router.push(`/${itemId}`);
     };
 
-    const { title, category,description, image } = item;
-    const { url } = image;
+    const { title, category,description } = item;
 
     const options = {
         initial: {
@@ -33,7 +32,7 @@ const Item = ({ item, width }) => {
                         alt={item.name}
                         width="300px"
                         height="400px"
-                        src={url}
+                        src={item?.image[0]?.url}
                         onClick={() => navigate(`/${item._id}`)}
                         style={{ cursor: "pointer" }}
                     />

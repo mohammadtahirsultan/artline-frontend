@@ -15,7 +15,7 @@ const ProjectDetails = () => {
     useEffect(() => {
         dispatch(getProjectDetails(id))
     }, [])
-    console.log(project);
+    console.log("I am Project", project?.image);
     return (
         <>
             <main id="main">
@@ -36,17 +36,15 @@ const ProjectDetails = () => {
                             <div className="col-lg-8">
                                 <div className="portfolio-details-slider swiper">
                                     <div className="swiper-wrapper align-items-center">
-                                    <Carousel autoPlay={true} interval={3000} infiniteLoop={true} showThumbs={false} showIndicators={false} showStatus={false} showArrows={true}>
-                                        <div className="swiper-slide">
-                                            <img src={project?.image?.url} alt={project?.title} />
-                                        </div>
-                                        <div className="swiper-slide">
-                                            <img src={project?.image?.url} alt={project?.title} />
-                                        </div>
-                                        <div className="swiper-slide">
-                                            <img src={project?.image?.url} alt={project?.title} />
-                                        </div>
-                                    </Carousel>
+                                        <Carousel autoPlay={true} interval={3000} infiniteLoop={true} showThumbs={false} showIndicators={false} showStatus={false} showArrows={true}>
+                                            {
+                                                project.image.map((image, i) => (
+                                                    <div className="swiper-slide" key={image + i}>
+                                                        <img src={image.url} alt={i} />
+                                                    </div>
+                                                ))
+                                            }
+                                        </Carousel>
                                     </div>
                                     <div className="swiper-pagination" />
                                 </div>
@@ -57,14 +55,14 @@ const ProjectDetails = () => {
                                     <ul>
                                         <li><strong>Category</strong>: {project?.category}</li>
                                         <li><strong>Title</strong>: {project?.title}</li>
-                                        <li><strong>Project date</strong>: {project?.createdAt?.slice(0,10)}</li>
+                                        <li><strong>Project date</strong>: {project?.createdAt?.slice(0, 10)}</li>
                                         <li><strong>Project URL</strong>: <a href={project?.link}>{project?.link}</a></li>
                                     </ul>
                                 </div>
                                 <div className="portfolio-description">
                                     <h2>{project?.title}</h2>
                                     <p>
-                                    {project?.description}
+                                        {project?.description}
                                     </p>
                                 </div>
                             </div>

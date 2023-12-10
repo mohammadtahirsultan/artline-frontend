@@ -49,11 +49,7 @@ export const editProject = (formData, id) => async (dispatch) => {
 
             headers: { "Content-Type": "application/json" },
 
-            
         };
-
-
-
 
         const { data } = await axios.put(
             `${server}/project/update/${id}`,
