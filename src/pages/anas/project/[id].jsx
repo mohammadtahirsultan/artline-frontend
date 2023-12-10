@@ -4,15 +4,16 @@ import { useRouter } from 'next/router';
 import { editProject, getProjectDetails } from '@/redux/actions/project'
 import Loader from '@/components/Loader'
 import Sidebar from '@/admin/Sidebar';
+import ProjectDetails from '@/pages/[id]';
 
 const EditProject = () => {
-    const { project } = useSelector((state) => state.project);
+    const { project, loading } = useSelector((state) => state.project);
 
     const [title, setTitle] = useState(project?.title)
     const [description, setDescription] = useState(project?.description)
     const [category, setCategory] = useState(project?.category)
     const [link, setLink] = useState(project?.link)
-    const [image, setImage] = useState("/logo.webp")
+    const [image, setImage] = useState([])
     const router = useRouter();
     const { id } = router.query;
     const dispatch = useDispatch()
@@ -20,22 +21,27 @@ const EditProject = () => {
         router.push(path);
     };
 
-    const { loading } = useSelector(state => state.project)
+
 
 
     const imageUploadChange = (e) => {
+        const files = Array.from(e.target.files);
 
-        if (e.target.name === "image") {
-            const reader = new FileReader()
+        setImage([]);
+
+        files.forEach((file) => {
+            const reader = new FileReader();
+
             reader.onload = () => {
                 if (reader.readyState === 2) {
-                    setImage(reader.result)
+                    setImage((old) => [...old, reader.result]);
                 }
-            }
+            };
 
-            reader.readAsDataURL(e.target.files[0])
-        }
-    }
+            reader.readAsDataURL(file);
+        });
+    };
+
     const editProjectSubmit = async (e) => {
         e.preventDefault()
 
@@ -47,7 +53,9 @@ const EditProject = () => {
         data.set("link", link)
         data.set("image", image)
 
-
+        image.forEach((image) => {
+            myForm.append("images", image);
+        });
         await dispatch(editProject(data, id));
 
         setTitle("")
@@ -61,11 +69,16 @@ const EditProject = () => {
 
 
     useEffect(() => {
-        dispatch(getProjectDetails(id))
-        setTitle(project?.title)
-        setDescription(project?.description)
-        setCategory(project?.category)
-        setLink(project?.link)
+        if (project && project._id !== id) {
+            dispatch(ProjectDetails(id));
+        } else {
+            setTitle(project?.title)
+            setDescription(project?.description)
+            setCategory(project?.category)
+            setLink(project?.link)
+            setImage(project?.image)
+        }
+
     }, [])
     return (
 
@@ -133,6 +146,7 @@ const EditProject = () => {
                                     onChange={imageUploadChange}
                                     className="block w-full text-sm border border-black rounded-lg cursor-pointer  bg-gray-50 focus:outline-none p-4"
                                     type="file"
+                                    multiple
                                 />
                             </div>
                         </div>
