@@ -11,7 +11,7 @@ const AddProject = () => {
     const [description, setDescription] = useState("")
     const [category, setCategory] = useState("")
     const [link, setLink] = useState("")
-    const [image, setImage] = useState("/logo.webp")
+    const [image, setImage] = useState([])
 
 
     const dispatch = useDispatch()
@@ -23,19 +23,39 @@ const AddProject = () => {
     const { loading } = useSelector(state => state.project)
 
 
-    const imageUploadChange = (e) => {
+    // const imageUploadChange = (e) => {
 
-        if (e.target.name === "image") {
-            const reader = new FileReader()
+    //     if (e.target.name === "image") {
+    //         const reader = new FileReader()
+    //         reader.onload = () => {
+    //             if (reader.readyState === 2) {
+    //                 setImage(reader.result)
+    //             }
+    //         }
+
+    //         reader.readAsDataURL(e.target.files[0])
+    //     }
+    // }
+
+
+    const imageUploadChange = (e) => {
+        const files = Array.from(e.target.files);
+
+        setImage([]);
+
+        files.forEach((file) => {
+            const reader = new FileReader();
+
             reader.onload = () => {
                 if (reader.readyState === 2) {
-                    setImage(reader.result)
+                    setImage((old) => [...old, reader.result]);
                 }
-            }
+            };
 
-            reader.readAsDataURL(e.target.files[0])
-        }
-    }
+            reader.readAsDataURL(file);
+        });
+    };
+
     const addProjectSubmit = async (e) => {
         e.preventDefault()
 
@@ -45,7 +65,10 @@ const AddProject = () => {
         data.set("description", description)
         data.set("category", category)
         data.set("link", link)
-        data.set("image", image)
+
+        image.forEach((image) => {
+            data.append("images", image);
+        });
 
 
         await dispatch(addProject(data));
@@ -126,6 +149,7 @@ const AddProject = () => {
                                     onChange={imageUploadChange}
                                     className="block w-full text-sm border border-black rounded-lg cursor-pointer  bg-gray-50 focus:outline-none p-4"
                                     type="file"
+                                    multiple
                                 />
                             </div>
                         </div>
