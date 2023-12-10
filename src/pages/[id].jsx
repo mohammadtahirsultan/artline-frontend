@@ -23,7 +23,7 @@ const ProjectDetails = () => {
                 <section className="breadcrumbs">
                     <div className="container pt-4">
                         <ol>
-                            <li><Link href="/l">Home</Link></li>
+                            <li><Link href="/portfolio">Home</Link></li>
                             <li>Project Details</li>
                         </ol>
                         <h2>Portfolio Details</h2>
