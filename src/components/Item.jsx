@@ -45,8 +45,8 @@ const Item = ({ item, width }) => {
                             .replace(/([A-Z])/g, " $1")
                             .replace(/^./, (str) => str.toUpperCase())}
                     </Typography>
-                    <Typography>{title}</Typography>
-                    <p>{description}</p>
+                    <Typography variant="h3">{title}</Typography>
+                    <p className="text-gray-200">{description}</p>
                     {/* <Typography fontWeight="bold">${price}</Typography> */}
                 </Box>
             </Box>
