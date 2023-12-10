@@ -8,7 +8,7 @@ const Item = ({ item, width }) => {
         router.push(`/${itemId}`);
     };
 
-    const { title, category, image } = item;
+    const { title, category,description, image } = item;
     const { url } = image;
 
     const options = {
@@ -46,6 +46,7 @@ const Item = ({ item, width }) => {
                             .replace(/^./, (str) => str.toUpperCase())}
                     </Typography>
                     <Typography>{title}</Typography>
+                    <p>{description}</p>
                     {/* <Typography fontWeight="bold">${price}</Typography> */}
                 </Box>
             </Box>
