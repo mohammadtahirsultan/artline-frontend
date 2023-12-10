@@ -80,6 +80,7 @@ const EditProject = () => {
             setImage(project?.image)
         }
 
+        dispatch(getProjectDetails(id));
     }, [])
     return (
 
