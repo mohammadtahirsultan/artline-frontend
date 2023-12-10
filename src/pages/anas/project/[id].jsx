@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import { editProject, getProjectDetails } from '@/redux/actions/project'
 import Loader from '@/components/Loader'
 import Sidebar from '@/admin/Sidebar';
-import ProjectDetails from '@/pages/[id]';
 
 const EditProject = () => {
     const { project, loading } = useSelector((state) => state.project);
@@ -14,8 +13,10 @@ const EditProject = () => {
     const [category, setCategory] = useState(project?.category)
     const [link, setLink] = useState(project?.link)
     const [image, setImage] = useState([])
+
     const router = useRouter();
     const { id } = router.query;
+
     const dispatch = useDispatch()
     const navigate = (path) => {
         router.push(path);
@@ -51,10 +52,9 @@ const EditProject = () => {
         data.set("description", description)
         data.set("category", category)
         data.set("link", link)
-        data.set("image", image)
 
         image.forEach((image) => {
-            myForm.append("images", image);
+            myForm.append("image", image);
         });
         await dispatch(editProject(data, id));
 
@@ -67,10 +67,11 @@ const EditProject = () => {
         navigate('/anas/projects');
     }
 
+    console.log(project);
 
     useEffect(() => {
         if (project && project._id !== id) {
-            dispatch(ProjectDetails(id));
+            dispatch(getProjectDetails(id));
         } else {
             setTitle(project?.title)
             setDescription(project?.description)
