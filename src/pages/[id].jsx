@@ -38,9 +38,9 @@ const ProjectDetails = () => {
                                     <div className="swiper-wrapper align-items-center">
                                         <Carousel autoPlay={true} interval={3000} infiniteLoop={true} showThumbs={false} showIndicators={false} showStatus={false} showArrows={true}>
                                             {
-                                                project.image.map((image, i) => (
-                                                    <div className="swiper-slide" key={image + i}>
-                                                        <img src={image.url} alt={i} />
+                                                project?.image.map((img, i) => (
+                                                    <div className="swiper-slide" key={img + i}>
+                                                        <img src={img.url} alt={i} />
                                                     </div>
                                                 ))
                                             }
