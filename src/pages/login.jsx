@@ -1,5 +1,6 @@
 import Loader from '@/components/Loader'
 import { loadUser, loginUser } from '@/redux/actions/user'
+import { isAuthenticated } from '@/utils/auth'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -14,7 +15,7 @@ const LoginForm = () => {
 
     const router = useRouter()
     const navigate = router.push
-    const { loading, isAuthenticated } = useSelector(state => state.user)
+    const { loading } = useSelector(state => state.user)
     const dispatch = useDispatch()
 
     const formSubmit = (e) => {
@@ -28,7 +29,7 @@ const LoginForm = () => {
         dispatch(loginUser(email, password))
         setEmail("")
         setPassword("")
-        navigate("/anas")
+        // navigate("/anas")
     }
 
 
@@ -37,6 +38,14 @@ const LoginForm = () => {
         dispatch(loadUser())
 
     }, [dispatch])
+    
+
+    useEffect(() => {
+        // Redirect to login if the user is not authenticated
+        if (isAuthenticated()) {
+            router.push('/anas');
+        }
+    }, [router]);
     return (
         <>
             <div className="adProject login w-screen flex-col justify-center px-6 py-8 lg:px-20">

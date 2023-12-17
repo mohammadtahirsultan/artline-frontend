@@ -40,7 +40,10 @@ export const loginUser = (email, password) => async (dispatch) => {
 
         const { data } = await axios.post(`${server}/user/login`, { email, password }, config)
 
+        localStorage.setItem('user', JSON.stringify(data.user));
 
+        // Redirect to dashboard after successful login
+        window.location.replace("/anas");
         dispatch({
             type: "loginUserSuccess",
             payload: data
