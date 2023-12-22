@@ -39,9 +39,13 @@ const PortfolioSection = () => {
     const GraphicsDesigning = projects?.filter(
         (item) => item?.category === "Graphics Designing"
     );
+    const LogoDesigning = projects?.filter(
+        (item) => item?.category === "Logo Designing"
+    );
     const DigitalMarketing = projects?.filter(
         (item) => item?.category === "Digital Marketing"
     );
+
 
     return (
         <Box width="80%" margin="80px auto">
@@ -68,6 +72,7 @@ const PortfolioSection = () => {
                 >
                     <Tab label="ALL" value="all" />
                     <Tab label="Graphics Desiging" value="newArrivals" />
+                    <Tab label="Logo Desiging" value="logo" />
                     <Tab label="Web Development" value="topRated" />
                     <Tab label="Digital Marketing" value="bestSellers" />
                 </Tabs>
@@ -88,6 +93,10 @@ const PortfolioSection = () => {
                     ))}
                 {value === "newArrivals" &&
                     GraphicsDesigning?.map((item) => (
+                        <Item item={item} key={`${item?.title}-${item?._id}`} />
+                    ))}
+                {value === "logo" &&
+                    LogoDesigning?.map((item) => (
                         <Item item={item} key={`${item?.title}-${item?._id}`} />
                     ))}
                 {value === "bestSellers" &&
