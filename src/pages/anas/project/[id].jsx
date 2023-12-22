@@ -144,7 +144,7 @@ const EditProject = () => {
                                 <input
                                     name="image"
                                     accept="image/*"
-                                    required
+                                    
                                     onChange={imageUploadChange}
                                     className="block w-full text-sm border border-black rounded-lg cursor-pointer  bg-gray-50 focus:outline-none p-4"
                                     type="file"
