@@ -121,6 +121,7 @@ const AddProject = () => {
                                     <option value="" disabled>Select Category</option>
                                     <option value="Web Development">Web Development</option>
                                     <option value="Graphics Designing">Graphics Designing</option>
+                                    <option value="Graphics Designing">Logo Designing</option>
                                     <option value="Digital Marketing">Digital Marketing</option>
                                 </select>
                             </div>
